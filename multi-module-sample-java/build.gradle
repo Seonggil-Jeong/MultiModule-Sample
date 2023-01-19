@@ -1,0 +1,49 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.7'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+bootJar.enabled = false
+
+
+subprojects {
+    group 'com.sample'
+    version '0.0.1-SNAPSHOT'
+    sourceCompatibility = '11'
+
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    // dependencies in multi-module
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        implementation 'javax.servlet:jstl'
+        implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        // Validate
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}

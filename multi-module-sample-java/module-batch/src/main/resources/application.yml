@@ -1,0 +1,12 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: "MODULE-BATCH-SAMPLE"
+
+  config:
+    use-legacy-processing: true
+  profiles:
+    active: "local"
+    default: "local"

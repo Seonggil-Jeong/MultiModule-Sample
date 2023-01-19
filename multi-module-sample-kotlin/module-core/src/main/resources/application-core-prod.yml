@@ -1,0 +1,25 @@
+core:
+  info: "CORE-PROD-KOTLIN"
+
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+  datasource:
+    url: jdbc:mariadb://mariadb-container:3306/multi-module
+    username: root
+    password: 43214321
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        naming:
+          physical-strategy = org.hibernate.model.naming.PhysicalNamingStrategyStandardImpl
+    database: mysql
+    generate-ddl: true

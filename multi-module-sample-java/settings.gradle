@@ -1,0 +1,5 @@
+rootProject.name = 'multi-module-sample-java'
+include 'module-core'
+include 'module-api'
+include 'module-batch'
+

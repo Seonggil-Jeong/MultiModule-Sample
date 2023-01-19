@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+  profiles:
+    include:
+      - "core-prod"
+
+# Logging Info
+logging:
+  level:
+    org.springframework: info
+
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui"
+  api-docs:
+    path: "/api-docs"
